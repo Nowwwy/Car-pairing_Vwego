@@ -1,0 +1,28 @@
+Pangyo road and building geometry: © OpenStreetMap contributors.
+Open Database License (ODbL) 1.0: https://opendatacommons.org/licenses/odbl/1-0/
+Attribution and copyright: https://www.openstreetmap.org/copyright
+
+res/raw/pangyo_osm.bin contains GZIP-compressed selected way geometry from the OpenStreetMap API
+for longitude 127.0860–127.1020 and latitude 37.4060–37.4200.
+Source: https://api.openstreetmap.org/api/0.6/map?bbox=127.0860,37.4060,127.1020,37.4200
+Each line contains a feature type followed by WGS84 latitude,longitude pairs.
+
+Seoul south/Pangyo basic road geometry: © OpenStreetMap contributors, ODbL 1.0.
+res/raw/seoul_south_osm.bin contains selected real OSM road ways, not raster tiles.
+Retrieved 2026-11-14; OSM database timestamp: 2026-11-14T11:24:06Z.
+Query bounds: south 37.375, west 127.015, north 37.535, east 127.150.
+Source: https://overpass-api.de/api/interpreter
+Query:
+[out:json][timeout:45];way["highway"~"^(motorway|trunk|primary|secondary|tertiary|residential|unclassified|living_street|motorway_link|trunk_link|primary_link|secondary_link|tertiary_link)$"](37.375,127.015,37.535,127.15);out geom;
+
+10,826 road ways; 70,496 original geometry vertices; GZIP UTF-8 rows in the same format.
+SHA-256: 4c02d8dd1dd5b9def130290e209eca31912c6f5d2daf2689857af4fae12a5ba2
+This basic fallback omits buildings, labels, footpaths and most land features outside
+the original Pangyo extract. It does not provide turn-by-turn navigation or live traffic.
+Whole OSM ways crossing the query bounds can extend beyond those bounds.
+No road coordinates are interpolated or invented. Map data corrections:
+https://www.openstreetmap.org/fixthemap
+
+Online OSM raster tiles are fetched only for the viewed map. Viewed tiles are cached
+for at least seven days and older cached tiles may remain visible during a reconnect.
+There is no raster-tile prefetch, downloadable-region feature or bundled raster archive.

@@ -1,0 +1,501 @@
+{
+  "source": "https://www.openstreetmap.org",
+  "license": "ODbL-1.0",
+  "retrieved": "2026-11-12",
+  "coverage": "Gangnam parking and fuel; selected Gyeonggi rest areas",
+  "places": [
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.4995043,
+      "longitude": 127.0218109,
+      "address": "",
+      "osm_type": "node",
+      "osm_id": "8495313225"
+    },
+    {
+      "kind": "parking",
+      "name": "언구비 공영주차장",
+      "latitude": 37.5046858,
+      "longitude": 127.0209858,
+      "address": "",
+      "osm_type": "node",
+      "osm_id": "11889283089"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.4974708625,
+      "longitude": 127.021347875,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "306341305"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.50059678,
+      "longitude": 127.02994466,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "306374821"
+    },
+    {
+      "kind": "parking",
+      "name": "삼성레포츠센터주차장",
+      "latitude": 37.49125638181818,
+      "longitude": 127.02108377272727,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "491242506"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.490773985714284,
+      "longitude": 127.02552661428571,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "606577861"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49287496,
+      "longitude": 127.03356262,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "628230123"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.5018723,
+      "longitude": 127.02779485,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "800728224"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.501740059999996,
+      "longitude": 127.02821394,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "800728234"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.50273797999999,
+      "longitude": 127.02983581999999,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "800734937"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.502405816666666,
+      "longitude": 127.02963203333333,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "800734938"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.50282946,
+      "longitude": 127.02011981999999,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "862420995"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49612985555555,
+      "longitude": 127.02320527777778,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1042249040"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49547308,
+      "longitude": 127.02327402,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1042249041"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49503216,
+      "longitude": 127.02256947999999,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1042249042"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49504537142857,
+      "longitude": 127.02282094285715,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1042249043"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49489041818182,
+      "longitude": 127.02287499090909,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1042249044"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.495304420000004,
+      "longitude": 127.02297822,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1042249050"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49565408,
+      "longitude": 127.02229076,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1042249052"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49444497,
+      "longitude": 127.02404057999999,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1043288046"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.492216240000005,
+      "longitude": 127.02822932,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1046181866"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.496000609999996,
+      "longitude": 127.02439402,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1046181875"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.496876220000004,
+      "longitude": 127.02220987999999,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1046781587"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49724625555555,
+      "longitude": 127.02338572222223,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1046781588"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49743146,
+      "longitude": 127.02214414,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1046781589"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.4977507,
+      "longitude": 127.02320702,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1046781590"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.492018933333334,
+      "longitude": 127.0257107888889,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1056882874"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49038693333333,
+      "longitude": 127.02028385,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1057521001"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49411248,
+      "longitude": 127.02838985999999,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1100958883"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49367564,
+      "longitude": 127.02865324,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1100958884"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.504420352000004,
+      "longitude": 127.037815468,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1145126567"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49629966,
+      "longitude": 127.0325057,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1412495303"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49616272,
+      "longitude": 127.03321406,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1412495305"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49529068,
+      "longitude": 127.0315439,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1412496993"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49513806,
+      "longitude": 127.03245082000001,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1412496994"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.50470060909091,
+      "longitude": 127.02098160909091,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1460222911"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.4916352,
+      "longitude": 127.02659794000002,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1463518976"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49218316666666,
+      "longitude": 127.02621476666667,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1464060430"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49203286,
+      "longitude": 127.0339274,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1571521491"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.4977335,
+      "longitude": 127.03402613333333,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1571862850"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.496903700000004,
+      "longitude": 127.03365385714287,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1571862876"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49736828571429,
+      "longitude": 127.03244672857143,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1571862893"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49631928,
+      "longitude": 127.03154529999999,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1571862909"
+    },
+    {
+      "kind": "parking",
+      "name": "주차장",
+      "latitude": 37.49141664,
+      "longitude": 127.03620582,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1572114542"
+    },
+    {
+      "kind": "rest",
+      "name": "용인 휴게소 (강릉 방향)",
+      "latitude": 37.24600037727273,
+      "longitude": 127.24245886818181,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "934654036"
+    },
+    {
+      "kind": "rest",
+      "name": "용인 휴게소 (인천 방향)",
+      "latitude": 37.24797312380953,
+      "longitude": 127.23788585238096,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "448939381"
+    },
+    {
+      "kind": "rest",
+      "name": "성남졸음쉼터",
+      "latitude": 37.435770833333336,
+      "longitude": 127.12400217777778,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "990273285"
+    },
+    {
+      "kind": "rest",
+      "name": "포곡졸음쉼터",
+      "latitude": 37.272444029999996,
+      "longitude": 127.19869109999999,
+      "address": "",
+      "osm_type": "way",
+      "osm_id": "1049558287"
+    },
+    {
+      "kind": "fuel",
+      "name": "성원주유소",
+      "latitude": 37.5049538,
+      "longitude": 127.0252514,
+      "address": "",
+      "osm_type": "node",
+      "osm_id": "368904390"
+    },
+    {
+      "kind": "fuel",
+      "name": "한국주유소",
+      "latitude": 37.4912834,
+      "longitude": 127.0375757,
+      "address": "",
+      "osm_type": "node",
+      "osm_id": "368904455"
+    },
+    {
+      "kind": "fuel",
+      "name": "사평로주유소",
+      "latitude": 37.5032945,
+      "longitude": 127.021502,
+      "address": "",
+      "osm_type": "node",
+      "osm_id": "368904833"
+    },
+    {
+      "kind": "fuel",
+      "name": "지에스칼텍스지에스타워주유소",
+      "latitude": 37.502701,
+      "longitude": 127.036294,
+      "address": "",
+      "osm_type": "node",
+      "osm_id": "368905715"
+    },
+    {
+      "kind": "fuel",
+      "name": "삼방주유소(GS)",
+      "latitude": 37.5037619,
+      "longitude": 127.0231999,
+      "address": "",
+      "osm_type": "node",
+      "osm_id": "5243728606"
+    },
+    {
+      "kind": "fuel",
+      "name": "서초제일주유소",
+      "latitude": 37.4904808,
+      "longitude": 127.0226795,
+      "address": "",
+      "osm_type": "node",
+      "osm_id": "7622182834"
+    }
+  ],
+  "extra_sources": [
+    {
+      "kind": "fuel",
+      "source": "https://api.openstreetmap.org/api/0.6/map?bbox=127.020,37.490,127.038,37.505",
+      "retrieved": "2026-11-13"
+    }
+  ]
+}

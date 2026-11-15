@@ -1,0 +1,17 @@
+CarPairing 0.15 통합 소스 수정본
+
+현재 상태: Python 검사 완료 / Android 빌드·설치 검증 대기 / APK 미포함
+
+Windows 실행 순서
+00_Check_Environment.cmd → 01_Setup_Local_AI.cmd → 02_Build_App.cmd → Run-Two-Cars.cmd
+
+Python, Ollama, Android SDK, JDK 25, Pleos 에뮬레이터는 미리 준비해야 합니다.
+02 빌드가 성공해야 0.15 APK를 실행할 수 있습니다.
+이전 서버가 실행 중이면 버전 충돌이 발생하므로 먼저 종료합니다.
+
+자세한 사용법: UPGRADE_GUIDE.md
+검증 범위: INTEGRATION_VERIFICATION.md
+
+음성 예시: 목적지 근처 카페로 경로 변경 / 커피 마시고 가자 / 일행에게 경로 변경했다고 말해줘
+텍스트는 기존 메시지 보내기 또는 AI 요청 처리 중에 선택합니다.
+경로 비교: 더보기 → 여러 도로 경로 비교 → 경로 선택 시 지도 미리보기

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+    <uses-permission android:name="pleos.car.permission.STT_SERVICE" />
+    <uses-permission android:name="pleos.car.permission.TTS_SERVICE" />
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE_SEARCH" />
+    <uses-permission android:name="pleos.car.permission.NAVI_CUSTOM_MAP" />
+    <uses-permission android:name="pleos.car.permission.FUSED_LOCATION" />
+    <uses-permission android:name="ai.pleos.playground.service.location.fused.FUSED_LOCATION_BINDING" />
+    <queries>
+        <package android:name="ai.pleos.playground.service.location.fused" />
+        <intent><action android:name="android.speech.RecognitionService" /></intent>
+        <intent>
+            <action android:name="ai.pleos.playground.intent.action.NAVI_START" />
+        </intent>
+    </queries>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+<application android:label="Car Pairing" android:theme="@style/AppTheme" android:icon="@mipmap/ic_launcher"
+        android:allowBackup="false" android:supportsRtl="true" android:enableOnBackInvokedCallback="false"
+        android:networkSecurityConfig="@xml/room_network">
+        <meta-data android:name="com.hmg.rotary.ROTARY_SUPPORTED" android:value="false" />
+        <meta-data android:name="ai.pleos.playground.service.navi.helper.min_version_name" android:value="2.0.1" />
+        <meta-data android:name="ai.pleos.playground.service.navi.helper.min_version_code" android:value="11" />
+        <meta-data android:name="ai.pleos.playground.sdk.navi.helper.current_version_name" android:value="3.0.5" />
+        <meta-data android:name="ai.pleos.playground.sdk.navi.helper.current_version_code" android:value="75" />
+        <meta-data android:name="ai.pleos.playground.service.location.fused.min_version_name" android:value="0.5.0" />
+        <meta-data android:name="ai.pleos.playground.service.location.fused.min_version_code" android:value="1" />
+        <meta-data android:name="ai.pleos.playground.sdk.location.fused.current_version_name" android:value="1.1.3" />
+        <meta-data android:name="ai.pleos.playground.sdk.location.fused.current_version_code" android:value="12" />
+        <activity android:name=".MainActivity" android:exported="true"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden"
+            android:resizeableActivity="true" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="carpairing" android:host="join" />
+            </intent-filter>
+        </activity>
+    <service android:name=".JourneyKeepAliveService" android:exported="false" android:foregroundServiceType="dataSync" />
+</application>
+</manifest>

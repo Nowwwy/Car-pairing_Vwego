@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-11-14T11:24:30.643105+00:00",
+  "end": {
+    "latitude": 37.49721,
+    "longitude": 127.02805
+  },
+  "routes": [
+    {
+      "origin": "Pangyo",
+      "duration_seconds": 760.1,
+      "distance_meters": 14388,
+      "geometry_points": 220,
+      "provider": "https://routing.openstreetmap.de/routed-car/route/v1/driving",
+      "traffic_included": false,
+      "elapsed_seconds": 6.973
+    },
+    {
+      "origin": "Jamsil",
+      "duration_seconds": 662.5,
+      "distance_meters": 10191,
+      "geometry_points": 186,
+      "provider": "https://routing.openstreetmap.de/routed-car/route/v1/driving",
+      "traffic_included": false,
+      "elapsed_seconds": 10.163
+    }
+  ]
+}
