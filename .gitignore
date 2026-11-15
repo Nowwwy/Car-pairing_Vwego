@@ -7,11 +7,12 @@ local.properties
 *.iml
 *.jks
 *.keystore
+*.p12
 *.apk
 
-# Packaged demo APK
-/dist/*
-!/dist/CarPairing-Integrated.apk
+# Local build output and submission APK
+/dist/
+!/apk/CarPairing-Integrated.apk
 
 # Python
 __pycache__/

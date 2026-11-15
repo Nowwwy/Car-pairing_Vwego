@@ -1,11 +1,11 @@
 """Two-car launcher: two real Pleos AVDs, one app/server, distinct GPS feeds."""
 import argparse, json, os, pathlib, socket, subprocess, time
-from run_local import sdk_path, find_adb, SERVER_VERSION, LOCAL_HTTP, port_number
+from run_local import sdk_path, find_adb, SERVER_VERSION, LOCAL_HTTP, port_number, default_apk
 ROOT=pathlib.Path(__file__).resolve().parent
 SDK=sdk_path()
 ADB=pathlib.Path(find_adb(SDK,False)) if SDK else pathlib.Path('missing-adb')
 EMU=(SDK or ROOT)/'emulator'/('emulator.exe' if os.sys.platform=='win32' else 'emulator')
-APK=ROOT/'dist/CarPairing-Integrated.apk'
+APK=default_apk()
 CARS=[('Pleos_Connect_2_1',5554,127.110,37.395,'1번차량'),('CarPairing_Pleos_B',5556,127.125,37.510,'2번차량')]
 NATIVE_NAV='ai.umos.maps.android.navigation.app'
 def adb(port,*args,check=True,timeout=20):

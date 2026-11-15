@@ -13,7 +13,13 @@ import sys
 from urllib.request import build_opener, ProxyHandler
 
 ROOT = Path(__file__).resolve().parent
-BUNDLED_APK = ROOT / 'dist' / 'CarPairing-Integrated.apk'
+LOCAL_DEBUG_APK = ROOT / 'dist' / 'CarPairing-Integrated.apk'
+SUBMISSION_APK = ROOT / 'apk' / 'CarPairing-Integrated.apk'
+
+
+def default_apk():
+    return LOCAL_DEBUG_APK if LOCAL_DEBUG_APK.is_file() else SUBMISSION_APK
+
 ACTIVITY = 'ai.carpairing.app/.MainActivity'
 DEVICE_PORT = 8765
 SERVER_VERSION = '3.4-context'
@@ -129,9 +135,9 @@ def build(sdk):
     wrapper = [str(ROOT/'gradlew.bat')] if sys.platform == 'win32' else ['sh',str(ROOT/'gradlew')]
     result = subprocess.call([*wrapper, ':app:assembleDebug', ':app:testDebugUnitTest'], cwd=ROOT, env=env)
     if result == 0:
-        BUNDLED_APK.parent.mkdir(exist_ok=True)
-        shutil.copy2(ROOT/'app/build/outputs/apk/debug/app-debug.apk', BUNDLED_APK)
-        print(f'빌드 완료: {BUNDLED_APK}')
+        LOCAL_DEBUG_APK.parent.mkdir(exist_ok=True)
+        shutil.copy2(ROOT/'app/build/outputs/apk/debug/app-debug.apk', LOCAL_DEBUG_APK)
+        print(f'빌드 완료: {LOCAL_DEBUG_APK}')
     return result
 
 
@@ -146,7 +152,7 @@ def main():
     setup = commands.add_parser('setup', help='이미 부팅한 기기에 APK 설치 및 연결')
     setup.add_argument('--port', type=port_number, default=DEVICE_PORT)
     setup.add_argument('--serial', action='append', default=[])
-    setup.add_argument('--apk', type=Path, default=BUNDLED_APK)
+    setup.add_argument('--apk', type=Path, default=default_apk())
     args = parser.parse_args()
     try:
         if args.command == 'server':
@@ -155,7 +161,8 @@ def main():
         sdk = sdk_path(args.sdk)
         if args.command == 'build': return build(sdk)
         adb = find_adb(sdk,args.sdk)
-        print(f'Android SDK: {sdk}\nADB: {adb}\nAPK: {BUNDLED_APK} ({"있음" if BUNDLED_APK.is_file() else "빌드 필요"})')
+        apk = default_apk()
+        print(f'Android SDK: {sdk}\nADB: {adb}\nAPK: {apk} ({"있음" if apk.is_file() else "빌드 필요"})')
         devices = list_devices(adb)
         if args.command == 'setup':
             setup_devices(args, adb, ready_devices(adb,devices,args.serial))
