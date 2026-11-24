@@ -1,106 +1,47 @@
 # Vwego · CarPairing
 
-Car Pairing은 두 차량을 모임 코드로 연결해 목적지, 도착 예상 시간, 주행 상황을 공유하는 Pleos 차량용 앱입니다.
+**같은 목적지로 따로 이동하는 두 차량이 위치, 도착 예상 시간(ETA), 주행 상황을 공유하는 Pleos 차량용 앱입니다.** 현대자동차그룹 차량용 앱 개발 공모전 프로젝트입니다.
 
-현재 버전: **0.17-context** · Android `versionCode 22` · 모임 서버 `3.4-context`.
+앱 **0.17-context** · Android `versionCode 22` · 모임 서버 **3.4-context**
 
-## 주요 기능
+[설치용 APK](apk/CarPairing-Integrated.apk) · [개발 및 실행 가이드](docs/development.md) · [검증 기록](docs/verification/CONTEXT_VERIFICATION_017.md)
 
-- 호스트 모임 생성 → 일행 코드 참여 → 공동 목적지 수락/거절
-- 차량별 위치와 ETA 표시, 일행 목적지 변경 제안 및 수락
-- 음성/텍스트로 주차장·카페 검색, 목적지·경유지 변경, 지연 연락
-- 변경한 내 차량 목적지와 직전 발화를 이용한 로컬 AI 요청 해석
-- “근처에 주차할 자리가 없어” → 현재 목적지 주변 대체 주차장 후보와 거리 표시
-- “그중 가장 가까운 곳으로 해줘” 같은 후보 선택 해석과 최종 변경 확인
-- 휴식·주유·주차 계획, 주차 층수/메모, 도로 경로 비교
+## 앱에서 할 수 있는 일
 
-1번 호스트와 2번 참여 차량 모두 음성 요청과 개인 목적지 변경을 사용할 수 있습니다. 일행 차량의 안내 변경에는 해당 운전자의 수락이 필요합니다.
-
-## 구성
-
-| 영역 | 구현 |
+| 상황 | 동작 |
 | --- | --- |
-| 차량 앱 | Kotlin/Java, Android, Pleos SDK |
-| 차량 위치·음성·내비 연동 | Pleos Vehicle / FusedLocation / SpeechToText / TextToSpeech / NaviHelper |
-| 모임·상태·이벤트·추천 | Python 서버와 SQLite |
-| 문장 의도·후속 선택 해석 | PC의 Ollama `qwen3:4b` |
-| 지도·장소 | OpenStreetMap 데이터 및 장소 색인 |
-| 경로 비교 | OSRM 응답 기반 비교; 실제 길안내는 Pleos |
+| 두 차량이 함께 출발할 때 | 한 차량이 모임을 만들고 다른 차량이 코드로 참여합니다. 두 차량의 위치와 ETA를 확인합니다. |
+| 목적지나 경유지를 바꾸고 싶을 때 | 각 차량의 운전자가 음성이나 텍스트로 장소를 검색하고 자신의 안내를 변경할 수 있습니다. 일행에게 목적지 변경을 제안하면 상대 운전자가 수락하거나 거절할 수 있습니다. |
+| 목적지 근처에서 주차가 어려울 때 | 앱은 현재 차량의 활성 목적지와 직전 발화를 바탕으로 대체 주차장 후보와 기준지에서의 직선 거리를 표시합니다. “그중 가장 가까운 곳”처럼 이어서 요청할 수 있고, 안내 변경에는 확인이 필요합니다. |
+| 늦거나 중간에 들러야 할 때 | 일행에게 지연 상황을 알리고 휴식·주유·주차를 계획합니다. 도로 경로 비교와 주차 층수·메모도 지원합니다. |
 
-페어링, 목적지 제안/수락, 이벤트 전달, AI 맥락 구성, 후보 선택 검증 및 화면은 프로젝트에서 구현했습니다. ChatGPT 서비스에 연결된 앱은 아닙니다.
+## 두 차량으로 시연하기
 
-## 준비 환경
+Python 3.10+, Android SDK 및 Platform-Tools, Pleos Connect 2.1.0 에뮬레이터 두 대가 필요합니다. AI 시연에는 PC의 Ollama와 `qwen3:4b`가 필요합니다.
 
-- Python **3.10 이상** (서버는 표준 라이브러리 사용)
-- Android Studio, Android SDK **37.0**, Platform-Tools
-- JDK **25** (Gradle 실행), Gradle Wrapper 포함
-- Pleos Connect **2.1.0** 에뮬레이터 2대와 Pleos 의존성 다운로드 환경
-- Ollama 및 `qwen3:4b` 모델
+1. Windows에서 `./scripts/00_Check_Environment.cmd`로 환경을 확인하고, Ollama 설치 후 `./scripts/01_Setup_Local_AI.cmd`를 실행합니다.
+2. `./scripts/Run-Two-Cars.cmd`로 모임 서버와 차량 앱을 시작합니다. 저장소에 서명된 시연용 APK가 포함되어 있습니다. 소스에서 디버그 APK를 만들려면 `./scripts/02_Build_App.cmd`를 실행합니다.
+3. 1번 차량에서 모임을 만들고 2번 차량에서 코드로 참여합니다. 공동 목적지를 정하고 2번 차량에서 수락합니다.
+4. 한 차량에서 “목적지 근처 카페로 변경해줘”라고 요청하고 후보 선택과 확인을 거칩니다. 이어 “근처에 주차할 자리가 없어”라고 요청하면 변경된 목적지 주변 후보가 나옵니다. “그중 가장 가까운 곳으로 해줘”로 후보를 선택합니다.
+5. “일행에게 10분 정도 늦을 것 같다고 알려줘”라고 요청하고 상대 차량에서 알림을 확인합니다.
 
-개발 및 시연에 사용한 에뮬레이터는 **Pleos Connect 2.1.0 / Android API 34**, 화면은 **2560 × 1440 px** Automotive 프로필입니다. 개발 기록에는 Cold Boot와 AVD당 RAM 4 GB가 명시되어 있습니다. [개발 환경 기록](DESIGN_GUIDE_AUDIT.md) · [Pleos 설치 가이드](https://document.pleos.ai/docs/connect/guide/getting-started/application-development/setup-connect-sdk-emulator)
+위치 권한을 허용하세요. 음성 시연에는 앱의 마이크 권한과 에뮬레이터의 호스트 마이크 접근이 필요합니다. 제보 화면에서 텍스트로도 AI 요청을 입력할 수 있습니다. 이미 켜진 에뮬레이터에 설치하는 방법과 macOS/Linux 명령은 [개발 및 실행 가이드](docs/development.md)를 참고하세요.
 
-처음 빌드할 때 Gradle·Android·Pleos 의존성을 내려받기 위한 인터넷 연결이 필요합니다. 개발 도구와 Pleos 시스템 이미지는 저장소에 포함하지 않습니다. 일반 스마트폰의 단독 APK 실행을 보장하는 앱이 아닙니다.
+## 코드와 문서 찾기
 
-## Windows에서 빠르게 실행
+| 경로 | 역할 |
+| --- | --- |
+| [`app/`](app/) | Android 차량 앱과 단위 테스트. Pleos SDK로 위치·음성·길안내를 연동합니다. |
+| [`backend/`](backend/) | Python 모임 서버, SQLite 저장, 음성 요청 처리 및 경로 비교. |
+| [`backend/data/`](backend/data/) | 장소 검색에 사용하는 데이터와 참고용 스냅샷. |
+| [`scripts/`](scripts/) | 환경 확인, 로컬 AI 설정, 빌드, APK 설치 및 두 차량 시연 도구. |
+| [`tests/`](tests/) | 서버, 장소 검색, 음성 요청 및 실행 도구 검사. |
+| [`docs/`](docs/) | 개발·실행 가이드와 [검증 기록](docs/verification/). |
 
-```powershell
-git clone https://github.com/Nowwwy/Car-pairing_Vwego.git
-cd Car-pairing_Vwego
-```
+[0.17 검증 기록](docs/verification/CONTEXT_VERIFICATION_017.md)에는 Python 검사 234개, Android 단위 테스트 41개, 실제 로컬 모델/API 시나리오 10개, Pleos 에뮬레이터 두 대 설치 결과가 기록되어 있습니다. [Pleos 개발 환경 기록](docs/verification/DESIGN_GUIDE_AUDIT.md)과 [이전 버전 업그레이드 가이드](docs/UPGRADE_GUIDE.md)도 참고할 수 있습니다.
 
-1. `00_Check_Environment.cmd`로 SDK·ADB·APK·모델 상태를 확인합니다.
-2. Ollama를 설치한 뒤 `01_Setup_Local_AI.cmd`를 실행합니다.
-3. 저장소에 포함된 release APK로 바로 시연할 수 있습니다. 개발용 디버그 APK가 필요한 경우 `02_Build_App.cmd`를 실행합니다.
-4. `Run-Two-Cars.cmd`로 모임 서버와 두 차량 시연을 시작합니다.
-5. 1번 차량에서 모임을 만들고 2번 차량에 코드를 입력합니다. 목적지를 정하고 일행에서 수락합니다.
+## 시연 범위
 
-기본 AVD 이름은 `Pleos_Connect_2_1`, `Pleos_Pairing_Follower_1` 또는 `CarPairing_Pleos_B`입니다. 기존 실행 서버가 있다면 포트와 버전을 확인하세요.
-
-## 이미 부팅한 에뮬레이터 / macOS / Linux
-
-```sh
-python3 run_local.py check
-python3 setup_local_ai.py
-python3 run_local.py server
-# 별도 터미널에서 실행
-python3 run_local.py setup --apk apk/CarPairing-Integrated.apk --serial emulator-5554 --serial emulator-5556
-```
-
-Windows에서는 `python3` 대신 `py -3`를 사용할 수 있습니다. SDK 경로가 기본 위치와 다르면 `ANDROID_HOME`을 지정합니다. 다른 서버 포트는 `server --port 8768`과 `setup --port 8768` 양쪽에 동일하게 지정합니다. 앱의 `127.0.0.1:8765`는 ADB reverse로 PC 서버에 연결됩니다. setup은 기존 기기에 설치·연결하며 에뮬레이터를 새로 부팅하지 않습니다.
-
-## 시연 순서
-
-1. 호스트 생성 → 코드 참여 → 목적지 설정 → 일행 수락
-2. “목적지 근처 카페로 변경해줘” → 후보 선택 → 변경 확인
-3. “근처에 주차할 자리가 없어” → **변경된 목적지** 주변 주차장 후보
-4. “그중에서 가장 가까운 곳으로 해줘” → 선택 확인 → 안내 변경
-5. “일행에게 10분 정도 늦을 것 같다고 알려줘” → 상대 차량 알림
-
-두 에뮬레이터에서 앱 위치 권한을 허용하세요. 음성을 테스트할 때는 에뮬레이터의 호스트 마이크 접근과 앱 마이크 권한을 허용하세요. 마이크가 없으면 제보 화면의 텍스트 AI 처리를 사용할 수 있습니다.
-
-## 검사
-
-```sh
-python3 -m unittest discover -v
-./gradlew testDebugUnitTest assembleRelease
-```
-
-Windows: `gradlew.bat testDebugUnitTest assembleRelease`.
-
-첨부 소스의 Windows 검증 기록에는 Python 234개, Android 41개, 로컬 모델/API 시나리오 10개 통과와 Pleos 에뮬레이터 2대 설치 확인이 포함되어 있습니다. [0.17 검증 기록](CONTEXT_VERIFICATION_017.md)
-
-제출 검증에는 macOS Python 3.12 서버 테스트 234개, Android 단위 테스트 41개, release 빌드 검사와 APK 서명 검증이 포함됩니다.
-
-## 현재 한계
-
-- 주차장 후보는 수록된 장소 색인 기준입니다. 모든 주변 주차장이나 실시간 빈자리·요금·영업 상태를 확인하지 않습니다.
-- 경로 비교는 실시간 교통 정체를 반영한 최적 경로 보장이 아닙니다. 임의 주행 경로 자동 학습은 구현하지 않았습니다.
-- 로컬 모델이 모든 표현을 정확히 이해한다고 보장하지 않습니다. 애매한 답은 재확인하고 목적지 변경은 별도 확인을 거칩니다.
-- Pleos 기본 내비의 흰 지도 배경 문제는 별도 환경 문제로 남아 있습니다.
-- 현재 서버는 개발·시연용입니다. 인터넷에 공개하는 운영 서비스로 배포하기 위한 구성은 포함하지 않습니다.
-
-## 저장소와 배포
-
-설치 파일은 [apk/CarPairing-Integrated.apk](apk/CarPairing-Integrated.apk)에 있습니다. Pleos 에뮬레이터에 설치할 수 있도록 서명한 release APK입니다. 기존에 다른 키로 서명한 개발용 APK가 설치된 경우 새 에뮬레이터에서 실행하세요.
-
-`assembleRelease`로 생성한 `app/build/outputs/apk/release/app-release-unsigned.apk`는 설치 전에 서명이 필요합니다. 개발용 빌드 도구는 `dist/CarPairing-Integrated.apk`에 별도의 디버그 APK를 생성합니다.
+- 주차장 후보는 수록된 장소 색인을 사용합니다. 실시간 빈자리, 요금, 영업 상태는 확인할 수 없습니다.
+- 경로 비교에서 실시간 교통은 반영하지 않습니다. Pleos 기본 내비의 흰 지도 배경 문제는 시연 환경에서 남아 있습니다.
+- 음성 요청이 애매하면 다시 확인합니다. 모임 서버는 로컬 개발과 시연을 위한 구성입니다.
