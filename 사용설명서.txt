@@ -1,7 +1,0 @@
-Vwego · CarPairing 사용설명서
-
-현재 앱 버전은 0.17-context이며, 서명된 시연용 APK는 apk/CarPairing-Integrated.apk에 있습니다.
-
-앱 소개와 시연 순서: README.md
-환경 준비, Windows 및 macOS/Linux 실행, 빌드와 테스트: docs/development.md
-0.17 버전 검증 기록: CONTEXT_VERIFICATION_017.md

@@ -4,7 +4,7 @@
 
 앱 **0.17-context** · Android `versionCode 22` · 모임 서버 **3.4-context**
 
-[설치용 APK](apk/CarPairing-Integrated.apk) · [개발 및 실행 가이드](docs/development.md) · [검증 기록](CONTEXT_VERIFICATION_017.md)
+[설치용 APK](apk/CarPairing-Integrated.apk) · [개발 및 실행 가이드](docs/development.md) · [검증 기록](docs/verification/CONTEXT_VERIFICATION_017.md)
 
 ## 앱에서 할 수 있는 일
 
@@ -19,8 +19,8 @@
 
 Python 3.10+, Android SDK 및 Platform-Tools, Pleos Connect 2.1.0 에뮬레이터 두 대가 필요합니다. AI 시연에는 PC의 Ollama와 `qwen3:4b`가 필요합니다.
 
-1. Windows에서 `00_Check_Environment.cmd`로 환경을 확인하고, Ollama 설치 후 `01_Setup_Local_AI.cmd`를 실행합니다.
-2. `Run-Two-Cars.cmd`로 모임 서버와 차량 앱을 시작합니다. 저장소에 서명된 시연용 APK가 포함되어 있습니다. 소스에서 디버그 APK를 만들려면 `02_Build_App.cmd`를 실행합니다.
+1. Windows에서 `./scripts/00_Check_Environment.cmd`로 환경을 확인하고, Ollama 설치 후 `./scripts/01_Setup_Local_AI.cmd`를 실행합니다.
+2. `./scripts/Run-Two-Cars.cmd`로 모임 서버와 차량 앱을 시작합니다. 저장소에 서명된 시연용 APK가 포함되어 있습니다. 소스에서 디버그 APK를 만들려면 `./scripts/02_Build_App.cmd`를 실행합니다.
 3. 1번 차량에서 모임을 만들고 2번 차량에서 코드로 참여합니다. 공동 목적지를 정하고 2번 차량에서 수락합니다.
 4. 한 차량에서 “목적지 근처 카페로 변경해줘”라고 요청하고 후보 선택과 확인을 거칩니다. 이어 “근처에 주차할 자리가 없어”라고 요청하면 변경된 목적지 주변 후보가 나옵니다. “그중 가장 가까운 곳으로 해줘”로 후보를 선택합니다.
 5. “일행에게 10분 정도 늦을 것 같다고 알려줘”라고 요청하고 상대 차량에서 알림을 확인합니다.
@@ -32,14 +32,13 @@ Python 3.10+, Android SDK 및 Platform-Tools, Pleos Connect 2.1.0 에뮬레이�
 | 경로 | 역할 |
 | --- | --- |
 | [`app/`](app/) | Android 차량 앱과 단위 테스트. Pleos SDK로 위치·음성·길안내를 연동합니다. |
-| [`server.py`](server.py), [`journey_store.py`](journey_store.py) | 개발·시연용 Python 모임 서버와 SQLite 저장소. |
-| [`voice_api.py`](voice_api.py), [`voice_requests.py`](voice_requests.py), [`voice_choices.py`](voice_choices.py) | Ollama를 이용한 요청 해석, 장소 후보 조회, 후속 선택 처리. |
-| [`places_service.py`](places_service.py), [`trip_planner.py`](trip_planner.py) | OpenStreetMap 기반 장소 데이터와 OSRM 기반 경로 비교. 실제 길안내는 Pleos에서 실행합니다. |
-| [`run_local.py`](run_local.py), [`run_two.py`](run_two.py) | 로컬 서버, APK 설치 및 에뮬레이터 시연 도구. |
-| 루트의 `test_*.py` | 서버, 장소 검색, 음성 요청 및 실행 도구 검사. |
-| [`docs/`](docs/) | 개발·실행 문서와 프로젝트 자료. |
+| [`backend/`](backend/) | Python 모임 서버, SQLite 저장, 음성 요청 처리 및 경로 비교. |
+| [`backend/data/`](backend/data/) | 장소 검색에 사용하는 데이터와 참고용 스냅샷. |
+| [`scripts/`](scripts/) | 환경 확인, 로컬 AI 설정, 빌드, APK 설치 및 두 차량 시연 도구. |
+| [`tests/`](tests/) | 서버, 장소 검색, 음성 요청 및 실행 도구 검사. |
+| [`docs/`](docs/) | 개발·실행 가이드와 [검증 기록](docs/verification/). |
 
-[0.17 검증 기록](CONTEXT_VERIFICATION_017.md)에는 Python 검사 234개, Android 단위 테스트 41개, 실제 로컬 모델/API 시나리오 10개, Pleos 에뮬레이터 두 대 설치 결과가 기록되어 있습니다. [Pleos 개발 환경 기록](DESIGN_GUIDE_AUDIT.md)과 [이전 버전 업그레이드 가이드](UPGRADE_GUIDE.md)도 참고할 수 있습니다.
+[0.17 검증 기록](docs/verification/CONTEXT_VERIFICATION_017.md)에는 Python 검사 234개, Android 단위 테스트 41개, 실제 로컬 모델/API 시나리오 10개, Pleos 에뮬레이터 두 대 설치 결과가 기록되어 있습니다. [Pleos 개발 환경 기록](docs/verification/DESIGN_GUIDE_AUDIT.md)과 [이전 버전 업그레이드 가이드](docs/UPGRADE_GUIDE.md)도 참고할 수 있습니다.
 
 ## 시연 범위
 
